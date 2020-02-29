@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       cookies.signed[:user_id] = @user.id
       redirect_to @user
     else
-      flash.now[:danger] = 'User already in db!' if User.exists?(username: user_params[:username])
       render 'new'
     end
   end
