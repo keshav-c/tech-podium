@@ -20,7 +20,7 @@ RSpec.describe Message, type: :model do
     expect(msg).to_not be_valid
   end
 
-  it 'can be created if valid' do
+  it 'can be created if valid, by valid user' do
     msg = @user.messages.build(text: 'a' * 300)
     expect(msg).to be_valid
   end
