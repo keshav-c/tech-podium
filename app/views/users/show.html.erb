@@ -1,1 +1,6 @@
-this is user homepage
+<% provide(:title, 'Home') %>
+this is <%= @user.fullname %>'s homepage
+<% if logged_in? %>
+  <br>
+  <%= link_to "Log out", logout_path, method: :delete %>
+<% end %>

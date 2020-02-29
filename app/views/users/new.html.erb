@@ -1,0 +1,15 @@
+<% provide(:title, 'Sign up') %>
+<div class="container">
+  <h1>Log in</h1>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+      <%= f.label :fullname %>
+      <%= f.text_field :fullname, class: 'form-control' %>
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+    <% end %>
+    <p> New user? <%= link_to "Join", signup_path %></p>
+  </div>
+</div>
