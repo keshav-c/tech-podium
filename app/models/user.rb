@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :fullname,
             presence: true,
             length: { minimum: 4, maximum: 50 }
+
+  has_many :messages
 end
