@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "SignupProcesses", type: :feature do
+RSpec.feature 'SignupProcesses', type: :feature do
   describe 'the sign up page' do
     it 'allows new user creation with valid input data' do
       visit signup_url
