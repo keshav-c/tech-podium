@@ -1,0 +1,5 @@
+<%= render 'shared/flashing_alert' %>
+<%= form_for(message, html: { class: 'messaging-form' }) do |f| %>
+  <%= f.text_area :text, size: '30x3', class: 'form-control' %>
+  <%= f.submit 'Post' %>
+<% end %>

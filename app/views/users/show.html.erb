@@ -1,6 +1,8 @@
 <% provide(:title, 'Home') %>
-this is <%= @user.fullname %>'s homepage
-<% if logged_in? %>
+<b><%= @user.fullname %></b> @<%= @user.username %>
+<% if logged_in? && current_user == @user %>
   <br>
   <%= link_to "Log out", logout_path, method: :delete %>
+  <%= render partial: 'messages/message_form', locals: { message: @message } %>
 <% end %>
+<%= render partial: 'messages/feed', locals: { messages: @feed } %>

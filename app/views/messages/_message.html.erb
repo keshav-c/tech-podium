@@ -1,0 +1,12 @@
+<div id="message-<%= message.id %>">
+  <div class='message-attribution' >
+    <%= link_to message.user.fullname, user_path(message.user), class: 'message-author' %>
+  </div>
+  <div class='message-liking'>
+    <span class='message-date'> <%= time_ago_in_words(message.created_at) %></span>
+    like button
+  </div>
+  <p class="message-text">
+    <%= message.text %>
+  </p>
+</div>

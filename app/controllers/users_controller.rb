@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :authorize, only: :show
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @message = Message.new
+    @feed = @user.messages
   end
 
   def new
