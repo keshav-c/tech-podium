@@ -15,4 +15,26 @@ class User < ApplicationRecord
   has_many :following,
            through: :following_relationships,
            source: :followed
+  has_many :follower_relationships,
+           class_name: 'Relationship',
+           foreign_key: 'followed_id',
+           dependent: :destroy
+  has_many :followers,
+           through: :follower_relationships
+
+  def follow(other)
+    following << other
+  end
+
+  def unfollow(other)
+    following.delete(other)
+  end
+
+  def following?(other)
+    following.where('followed_id = ?', other.id).exists?
+  end
+
+  def follower?(other)
+    followers.where('follower_id = ?', other.id).exists?
+  end
 end
