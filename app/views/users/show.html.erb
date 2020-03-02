@@ -1,5 +1,7 @@
 <% provide(:title, 'Home') %>
 <b><%= @user.fullname %></b> @<%= @user.username %>
+<%= render partial: 'follow_stats', locals: { user: @user } %>
+<%= render partial: 'follow_form', locals: { user: @user } %>
 <% if logged_in? && current_user == @user %>
   <br>
   <%= link_to "Log out", logout_path, method: :delete %>

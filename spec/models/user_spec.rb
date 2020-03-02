@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
     expect(u1.following?(u2)).to be false
     u1.follow(u2)
     expect(u1.following?(u2)).to be true
-    expect(u2.follower?(u1)).to be true
     u1.unfollow(u2)
     expect(u1.following?(u2)).to be false
   end

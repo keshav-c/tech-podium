@@ -1,0 +1,12 @@
+<div class="stats">
+  <strong id="following" class="stat">
+    <%= link_to "following #{user.following.count}",
+                following_user_path(user),
+                id: "following-#{user.id}" %>
+  </strong>|
+  <strong id="followers" class="stat">
+    <%= link_to pluralize(user.followers.count, "follower"),
+                followers_user_path(user),
+                id: "followers-#{user.id}" %>
+  </strong>
+</div>
