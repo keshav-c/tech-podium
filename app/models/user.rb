@@ -35,6 +35,6 @@ class User < ApplicationRecord
   end
 
   def relationship_with(user)
-    Relationship.where('follower_id = ? AND followed_id = ?', id, user.id).limit(1)
+    Relationship.find_by(follower_id: id, followed_id: user.id)
   end
 end
