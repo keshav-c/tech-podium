@@ -21,6 +21,7 @@ class User < ApplicationRecord
            dependent: :destroy
   has_many :followers,
            through: :follower_relationships
+  has_many :likes
 
   def follow(other)
     following << other

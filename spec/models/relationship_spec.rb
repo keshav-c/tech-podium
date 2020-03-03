@@ -24,4 +24,12 @@ RSpec.describe Relationship, type: :model do
     rel = Relationship.new(follower_id: @u1.id, followed_id: @u2.id + 1000)
     expect(rel).to_not be_valid
   end
+
+  it 'cannot follow the same user twice' do
+    rel = Relationship.new(follower_id: @u1.id, followed_id: @u2.id)
+    expect(rel).to be_valid
+    rel.save
+    dup_rel = Relationship.new(follower_id: @u1.id, followed_id: @u2.id)
+    expect(dup_rel).to_not be_valid
+  end
 end
