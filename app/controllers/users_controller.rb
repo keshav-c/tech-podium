@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @message = Message.new
     if @user == current_user
-      following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+      following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
       @feed = Message.where("user_id IN (#{following_ids}) OR user_id = :user_id",
                             user_id: @user.id)
     else
