@@ -39,7 +39,7 @@ class User < ApplicationRecord
     Relationship.find_by(follower_id: id, followed_id: user.id)
   end
 
-  def like(message)
+  def like_message(message)
     message.likes.create(user_id: id)
   end
 
