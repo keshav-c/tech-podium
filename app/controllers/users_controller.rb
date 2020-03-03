@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authorize, only: %i[show following followers]
 
   def show
-    @user = User.find(params[:id])
+    @user = !params[:id].nil? ? User.find(params[:id]) : current_user
+    # @user = User.find(params[:id])
     @message = Message.new
     if @user == current_user
       following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
