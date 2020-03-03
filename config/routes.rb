@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
   resources :messages, only: :create
   resources :relationships, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 end

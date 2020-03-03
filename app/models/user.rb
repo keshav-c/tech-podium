@@ -38,4 +38,12 @@ class User < ApplicationRecord
   def relationship_with(user)
     Relationship.find_by(follower_id: id, followed_id: user.id)
   end
+
+  def like(message)
+    message.likes.create(user_id: id)
+  end
+
+  def undo_like(message)
+    Like.find_by(user_id: id, message_id: message.id).destroy
+  end
 end
