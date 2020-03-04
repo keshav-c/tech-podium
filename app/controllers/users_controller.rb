@@ -9,6 +9,7 @@ class UsersController < ApplicationController
             else
               Message.feed(@user, current_user: current_user)
             end
+    @logged_in_user = @user == current_user
   end
 
   def new

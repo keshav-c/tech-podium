@@ -1,9 +1,12 @@
 <% provide(:title, @title) %>
-<div class="col-md-4 col-md-offset-4">
+<div class="col-6">
   <h2><%= @title %></h2>
   <% if @users.any? %>
     <ul class="users-list">
       <%= render @users %>
     </ul>
   <% end %>
+</div>
+<div class="col-3">
+  user specific info
 </div>
