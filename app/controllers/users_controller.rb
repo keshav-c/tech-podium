@@ -3,15 +3,12 @@ class UsersController < ApplicationController
 
   def show
     @user = !params[:id].nil? ? User.find(params[:id]) : current_user
-    # @user = User.find(params[:id])
     @message = Message.new
-    if @user == current_user
-      following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
-      @feed = Message.where("user_id IN (#{following_ids}) OR user_id = :user_id",
-                            user_id: @user.id)
-    else
-      @feed = @user.messages
-    end
+    @feed = if @user == current_user
+              Message.feed(@user, current_user, user_logged_in: true)
+            else
+              Message.feed(@user, current_user, user_logged_in: false)
+            end
   end
 
   def new

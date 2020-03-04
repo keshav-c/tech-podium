@@ -8,7 +8,11 @@
       <%= message.text %>
     </p>
     <div class='message-liking'>
-      like button
+      <% if message.liked %>
+        unlike button
+      <% else %>
+        like button
+      <% end %>
     </div>
   </div>
 </li>
