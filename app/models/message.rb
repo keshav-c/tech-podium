@@ -7,19 +7,26 @@ class Message < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
-  def self.feed(user, current_user, user_logged_in:)
+  def self.feed(user, current_user:)
     users_liked = 'SELECT user_id FROM likes WHERE likes.message_id = messages.id'
     condition = "#{current_user.id} IN (#{users_liked})"
+
+    like_id_condition = "user_id = #{current_user.id} AND message_id = messages.id"
+    get_like_id = "SELECT likes.id FROM likes WHERE #{like_id_condition}"
+
     current_user_liked = "CASE WHEN #{condition} THEN TRUE ELSE FALSE END AS liked"
-    if user_logged_in
+    like_id = "CASE WHEN #{condition} THEN (#{get_like_id}) ELSE NULL END AS like_id"
+    if user == current_user
       following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
       Message
         .where("user_id IN (#{following_ids}) OR user_id = :user_id",
                user_id: user.id)
         .includes(:user)
-        .select("messages.*, #{current_user_liked}")
+        .select("messages.*, #{current_user_liked}, #{like_id}")
     else
-      user.messages.includes(:user).select("messages.*, #{current_user_liked}")
+      user.messages
+        .includes(:user)
+        .select("messages.*, #{current_user_liked}, #{like_id}")
     end
   end
 end

@@ -5,9 +5,9 @@ class UsersController < ApplicationController
     @user = !params[:id].nil? ? User.find(params[:id]) : current_user
     @message = Message.new
     @feed = if @user == current_user
-              Message.feed(@user, current_user, user_logged_in: true)
+              Message.feed(@user, current_user: @user)
             else
-              Message.feed(@user, current_user, user_logged_in: false)
+              Message.feed(@user, current_user: current_user)
             end
   end
 
