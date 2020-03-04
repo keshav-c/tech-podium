@@ -8,11 +8,7 @@
       <%= message.text %>
     </p>
     <div class='message-liking'>
-      <% if message.liked %>
-        unlike button
-      <% else %>
-        like button
-      <% end %>
+      <%= render partial: 'likes/like_form', locals: { message: message }%>
     </div>
   </div>
 </li>

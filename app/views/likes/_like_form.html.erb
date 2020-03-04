@@ -1,0 +1,14 @@
+<% if message.liked %>
+  <%= form_tag("/likes/#{message.like_id}", method: :delete) do %>
+    <%= hidden_field_tag :message_id, message.id %>
+    <%= submit_tag "<3", class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <%= form_for current_user.likes.build do |f| %>
+    <%= hidden_field_tag :message_id, message.id %>
+    <%= f.submit "<3", class: "btn" %>
+  <% end %>
+<% end %>
+<% if message.num_likes > 0 %>
+  <span class="num-likes"><%= message.num_likes %></span>
+<% end %>

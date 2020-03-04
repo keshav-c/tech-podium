@@ -26,6 +26,8 @@ RSpec.describe Like, type: :model do
     expect(like1).to be_valid
     like2 = @m.likes.build(user: @u1)
     expect(like2).to be_valid
+    @u1.like_message(@m)
+    expect(@m.likes.count).to eq 1
   end
 
   it 'user cannot like the same message twice' do

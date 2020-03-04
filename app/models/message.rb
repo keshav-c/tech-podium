@@ -16,17 +16,19 @@ class Message < ApplicationRecord
 
     current_user_liked = "CASE WHEN #{condition} THEN TRUE ELSE FALSE END AS liked"
     like_id = "CASE WHEN #{condition} THEN (#{get_like_id}) ELSE NULL END AS like_id"
+    num_likes = '(SELECT COUNT(*) FROM likes WHERE message_id = messages.id) AS num_likes'
+
     if user == current_user
       following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
       Message
         .where("user_id IN (#{following_ids}) OR user_id = :user_id",
                user_id: user.id)
         .includes(:user)
-        .select("messages.*, #{current_user_liked}, #{like_id}")
+        .select("messages.*, #{current_user_liked}, #{like_id}, #{num_likes}")
     else
       user.messages
         .includes(:user)
-        .select("messages.*, #{current_user_liked}, #{like_id}")
+        .select("messages.*, #{current_user_liked}, #{like_id}, #{num_likes}")
     end
   end
 end
