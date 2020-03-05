@@ -1,5 +1,13 @@
-<%= render 'shared/flashing_alert' %>
-<%= form_for(message, html: { class: 'messaging-form' }) do |f| %>
-  <%= f.text_area :text, size: '30x3', class: 'form-control' %>
-  <%= f.submit 'Post' %>
-<% end %>
+<div id="messaging-form" class="clearfix">
+  <%= render 'shared/flashing_alert' %>
+  <%= form_for(message) do |f| %>
+    <div class="form-field">
+      <p>Say something</p>
+      <%= f.text_area :text, size: '30x3', placeholder: 'Compose new message', class: 'form-control' %>
+    </div>
+
+    <div id="form-submit">
+      <%= f.submit 'Message', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

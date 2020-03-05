@@ -4,7 +4,7 @@
     <div class="col-3">
       <%= render partial: 'shared/navigation', locals: { current_user: current_user } %>
     </div>
-    <div class="col-6">
+    <div class="col-6" id="center-tab">
       <% if logged_in? && current_user == @user %>
         <br>
         <%= render partial: 'messages/message_form', locals: { message: @message } %>

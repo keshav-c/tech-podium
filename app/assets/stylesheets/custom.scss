@@ -1,0 +1,19 @@
+#center-tab {
+  background-color: $gray-200;
+}
+
+#messaging-form {
+  background-color: $white;
+  border-radius: 3px;
+  padding: 5px;
+  #form-submit {
+    float: right;
+  }
+  p {
+    color: $gray-600;
+  }
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
