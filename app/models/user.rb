@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :followers,
            through: :follower_relationships
   has_many :likes
+  has_one_attached :photo
+  has_one_attached :coverimage
 
   def follow(other)
     following << other

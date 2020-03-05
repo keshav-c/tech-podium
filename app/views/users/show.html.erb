@@ -3,6 +3,11 @@
   <b><%= @user.fullname %></b> @<%= @user.username %>
   <%= render partial: 'follow_stats', locals: { user: @user } %>
   <%= render partial: 'follow_form', locals: { user: @user } %>
+  <% if @user.photo.attached? %>
+    <%= image_tag(@user.photo) %>
+  <% else %>
+    <%= image_tag("default_avatar.png") %>
+  <% end %>
   <% if logged_in? && current_user == @user %>
     <br>
     <%= render partial: 'messages/message_form', locals: { message: @message } %>
