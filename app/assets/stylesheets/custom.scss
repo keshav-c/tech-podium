@@ -24,6 +24,24 @@
     margin: 0;
     padding: 0;
   }
+  ul {
+    padding-inline-start: 0;
+  }
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+.message-attribution {
+  .message-date {
+    float: right;
+  }
+}
+
+.message-like {
+  align-items: baseline;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .form-field {
