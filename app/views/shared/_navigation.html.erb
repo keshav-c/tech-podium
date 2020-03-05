@@ -1,3 +1,7 @@
+<%= image_tag(current_user.photo_path, size: "50x50") %>
+<%= current_user.fullname %>
+<%= render partial: 'follow_stats', locals: { user: current_user } %>
+<br>
 <%= link_to "Home", root_path %>
 <br>
 <%= link_to "Log out", logout_path, method: :delete %>

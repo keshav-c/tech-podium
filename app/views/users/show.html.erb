@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <%= render partial: 'shared/navigation' %>
+      <%= render partial: 'shared/navigation', locals: { current_user: current_user } %>
     </div>
     <div class="col-6">
       <b><%= @user.fullname %></b> @<%= @user.username %>
