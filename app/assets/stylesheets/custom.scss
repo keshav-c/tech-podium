@@ -14,6 +14,18 @@
   }
 }
 
+.message-feed {
+  background-color: $white;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 5px;
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .form-field {
   margin-bottom: 10px;
 }
