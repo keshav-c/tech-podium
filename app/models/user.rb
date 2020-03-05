@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :followers,
            through: :follower_relationships
   has_many :likes
+  has_one_attached :photo
+  has_one_attached :coverimage
 
   def follow(other)
     following << other
@@ -45,5 +47,9 @@ class User < ApplicationRecord
 
   def undo_like(message)
     Like.find_by(user_id: id, message_id: message.id).destroy
+  end
+
+  def photo_path
+    photo.attached? ? photo : 'default_avatar.png'
   end
 end
