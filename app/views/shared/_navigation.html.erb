@@ -1,6 +1,8 @@
 <%= image_tag(current_user.photo_path, size: "50x50") %>
 <%= current_user.fullname %>
-<%= render partial: 'follow_stats', locals: { user: current_user } %>
+<div class="stats">
+  <%= render partial: 'follow_stats', locals: { user: current_user } %>
+</div>
 <br>
 <%= link_to "Home", root_path %>
 <br>

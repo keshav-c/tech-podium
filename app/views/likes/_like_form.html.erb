@@ -1,6 +1,6 @@
 <div class="message-like">
   <% if message.num_likes > 0 %>
-    <span class="num-likes"><%= message.num_likes %></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="num-likes text-muted"><%= message.num_likes %></span>&nbsp;&nbsp;&nbsp;
   <% end %>
   <div class="like-form">
     <% if message.liked %>
@@ -11,7 +11,7 @@
     <% else %>
       <%= form_for current_user.likes.build do |f| %>
         <%= hidden_field_tag :message_id, message.id %>
-        <%= f.submit "<3", class: "btn" %>
+        <%= f.submit "<3", class: "btn btn-outline-secondary" %>
       <% end %>
     <% end %>
   </div>

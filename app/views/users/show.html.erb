@@ -12,15 +12,22 @@
       <%= render partial: 'messages/feed', locals: { messages: @feed } %>
     </div>
     <div class="col-3" id="right-tab">
-      <% if !@logged_in_user %>
-        <%= image_tag @user.photo_path, size: "80x80" %><br>
-        <b><%= @user.fullname %></b> @<%= @user.username %>
-        <div>
-          <%= pluralize(@user.messages.count, 'message') %>
-          <%= render partial: 'follow_stats', locals: { user: @user } %>
-        </div>
-        <%= render partial: 'follow_form', locals: { user: @user } %>
-      <% end %>
+      <div id="profile-info">
+        <% if !@logged_in_user %>
+          <%= image_tag @user.photo_path, size: "80x80", class: "d-block mx-auto" %>
+          <h5><%= @user.fullname %></h5> 
+          <p class="text-muted">@<%= @user.username %></p>
+          <div class="stats">
+            <div class="stat">
+              <% cnt = @user.messages.count %>
+              <div class="stat-num"><%= cnt %></div>
+              <div class="stat-text font-weight-bold"><%= 'Message'.pluralize(cnt) %></div>
+            </div>
+            <%= render partial: 'follow_stats', locals: { user: @user } %>
+          </div>
+          <%= render partial: 'follow_form', locals: { user: @user } %>
+        <% end %>
+      </div>
       <div class="users-list">
         <% if @users_list.any? %>
           <% if @logged_in_user %>

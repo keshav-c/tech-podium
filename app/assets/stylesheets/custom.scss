@@ -3,7 +3,28 @@
 }
 
 #right-tab {
-  padding-left: 50px;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.stats {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  text-align: center;
+}
+
+#follow-form {
+  text-align: center;
 }
 
 #messaging-form {
@@ -50,6 +71,15 @@
 
 .form-field {
   margin-bottom: 10px;
+}
+
+#profile-info {
+  h5, p {
+    text-align: center;
+  }
+  h5 {
+    margin-bottom: 3px;
+  }
 }
 
 .users-list {
