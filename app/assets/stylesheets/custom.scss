@@ -2,6 +2,10 @@
   background-color: $gray-200;
 }
 
+#right-tab {
+  padding-left: 50px;
+}
+
 #messaging-form {
   background-color: $white;
   border-radius: 3px;
@@ -46,4 +50,10 @@
 
 .form-field {
   margin-bottom: 10px;
+}
+
+.users-list {
+  ul {
+    padding-inline-start: 0;
+  }
 }

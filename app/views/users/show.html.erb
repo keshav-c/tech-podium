@@ -11,7 +11,7 @@
       <% end %>
       <%= render partial: 'messages/feed', locals: { messages: @feed } %>
     </div>
-    <div class="col-3">
+    <div class="col-3" id="right-tab">
       <% if !@logged_in_user %>
         <%= image_tag @user.photo_path, size: "80x80" %><br>
         <b><%= @user.fullname %></b> @<%= @user.username %>
@@ -21,21 +21,23 @@
         </div>
         <%= render partial: 'follow_form', locals: { user: @user } %>
       <% end %>
-      <% if @users_list.any? %>
-        <% if @logged_in_user %>
-          <h4>Users to follow:</h4>
-        <% else %>
-          <h4>Followed by:</h4>
-        <% end %>
-        <ul>
-          <% @users_list.each do |u| %>
-          <div>
-            <%= image_tag(u.photo_path, size: "15x15") %>
-            <%= link_to u.fullname, "/users/#{u.id}" %>
-          </div>
+      <div class="users-list">
+        <% if @users_list.any? %>
+          <% if @logged_in_user %>
+            <h4>Users to follow:</h4>
+          <% else %>
+            <h4>Followed by:</h4>
           <% end %>
-        </ul>
-      <% end %>
+          <ul>
+            <% @users_list.each do |u| %>
+            <div>
+              <%= image_tag(u.photo_path, size: "15x15") %>
+              <%= link_to u.fullname, "/users/#{u.id}" %>
+            </div>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
       
     </div>
   </div>
