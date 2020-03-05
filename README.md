@@ -17,7 +17,7 @@ implemented are
 
 ## Live Demo
 
-TBA
+App is deployed to heroku and here is the [live version](https://tranquil-oasis-42246.herokuapp.com/)
 
 
 ## Getting Started
