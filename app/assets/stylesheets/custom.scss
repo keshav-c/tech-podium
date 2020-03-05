@@ -1,0 +1,103 @@
+#left-tab {
+  padding-top: 20px;
+}
+
+#cu-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cu-links {
+  display: flex;
+  flex-direction: column;
+}
+
+#center-tab {
+  background-color: $gray-200;
+}
+
+#right-tab {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.stats {
+  align-items: baseline;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  text-align: center;
+}
+
+#follow-form {
+  text-align: center;
+}
+
+#messaging-form {
+  background-color: $white;
+  border-radius: 3px;
+  padding: 5px;
+  #form-submit {
+    float: right;
+  }
+  p {
+    color: $gray-600;
+  }
+}
+
+.message-feed {
+  background-color: $white;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 5px;
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    padding-inline-start: 0;
+  }
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+.message-attribution {
+  .message-date {
+    float: right;
+  }
+}
+
+.message-like {
+  align-items: baseline;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+#profile-info {
+  h5, p {
+    text-align: center;
+  }
+  h5 {
+    margin-bottom: 3px;
+  }
+}
+
+.users-list {
+  margin-top: 15px;
+  ul {
+    padding-inline-start: 0;
+  }
+}

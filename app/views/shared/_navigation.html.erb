@@ -1,7 +1,11 @@
-<%= image_tag(current_user.photo_path, size: "50x50") %>
-<%= current_user.fullname %>
-<%= render partial: 'follow_stats', locals: { user: current_user } %>
-<br>
-<%= link_to "Home", root_path %>
-<br>
-<%= link_to "Log out", logout_path, method: :delete %>
+<div id="cu-info">
+  <%= image_tag(current_user.photo_path, size: "50x50") %>
+  <h3><%= current_user.fullname %></h3>
+  <div class="stats">
+    <%= render partial: 'follow_stats', locals: { user: current_user } %>
+  </div>
+</div>
+<div id="cu-links">
+  <%= link_to "Home", root_path, class: "btn btn-outline-primary btn-lg", style: "margin-bottom: 10px;" %>
+  <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-outline-primary btn-lg" %>
+</div>
