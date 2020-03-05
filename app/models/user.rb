@@ -52,4 +52,14 @@ class User < ApplicationRecord
   def photo_path
     photo.attached? ? photo : 'default_avatar.png'
   end
+
+  def users_to_follow
+    following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
+    User
+      .with_attached_photo
+      .where("id NOT IN (#{following_ids}) AND id != :user_id", user_id: id)
+      .select('fullname, id')
+      .order(created_at: :desc)
+      .limit(10)
+  end
 end

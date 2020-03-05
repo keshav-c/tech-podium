@@ -10,6 +10,11 @@ class UsersController < ApplicationController
               Message.feed(@user, current_user: current_user)
             end
     @logged_in_user = @user == current_user
+    @users_list = if @logged_in_user
+                    @user.users_to_follow
+                  else
+                    @user.followers
+                  end
   end
 
   def new
