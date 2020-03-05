@@ -1,23 +1,26 @@
 <% provide(:title, 'Home') %>
-<div class="col-6">
-  <b><%= @user.fullname %></b> @<%= @user.username %>
-  <%= render partial: 'follow_stats', locals: { user: @user } %>
-  <%= render partial: 'follow_form', locals: { user: @user } %>
-  <% if @user.photo.attached? %>
-    <%= image_tag(@user.photo) %>
-  <% else %>
-    <%= image_tag("default_avatar.png") %>
-  <% end %>
-  <% if logged_in? && current_user == @user %>
-    <br>
-    <%= render partial: 'messages/message_form', locals: { message: @message } %>
-  <% end %>
-  <%= render partial: 'messages/feed', locals: { messages: @feed } %>
-</div>
-<div class="col-3">
-  <% if @logged_in_user %>
-    logged in user specific info
-  <% else %>
-    user specific info
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render partial: 'shared/navigation' %>
+    </div>
+    <div class="col-6">
+      <b><%= @user.fullname %></b> @<%= @user.username %>
+      <%= render partial: 'follow_stats', locals: { user: @user } %>
+      <%= render partial: 'follow_form', locals: { user: @user } %>
+      <%= image_tag(@user.photo_path, size: "50x50") %>
+      <% if logged_in? && current_user == @user %>
+        <br>
+        <%= render partial: 'messages/message_form', locals: { message: @message } %>
+      <% end %>
+      <%= render partial: 'messages/feed', locals: { messages: @feed } %>
+    </div>
+    <div class="col-3">
+      <% if @logged_in_user %>
+        logged in user specific info
+      <% else %>
+        user specific info
+      <% end %>
+    </div>
+  </div>
 </div>
