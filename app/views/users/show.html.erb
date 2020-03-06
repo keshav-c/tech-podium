@@ -5,8 +5,10 @@
       <%= render partial: 'shared/navigation', locals: { current_user: current_user } %>
     </div>
     <div class="col-6" id="center-tab">
+      <div class="cover-image">
+        <%= image_tag(@user.coverimage_path, class: "img-fluid") %>
+      </div>
       <% if logged_in? && current_user == @user %>
-        <br>
         <%= render partial: 'messages/message_form', locals: { message: @message } %>
       <% end %>
       <%= render partial: 'messages/feed', locals: { messages: @feed } %>
