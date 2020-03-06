@@ -1,6 +1,6 @@
 <div id="messaging-form" class="clearfix">
   <%= render 'shared/flashing_alert' %>
-  <%= form_for(message) do |f| %>
+  <%= form_for(user.messages.new) do |f| %>
     <div class="form-field">
       <p>Say something</p>
       <%= f.text_area :text, size: '30x3', placeholder: 'Compose new message', class: 'form-control' %>

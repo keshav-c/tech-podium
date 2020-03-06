@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :authorize, only: %i[show following followers]
 
   def show
-    @user = !params[:id].nil? ? User.find(params[:id]) : current_user
-    @message = Message.new
+    @user = params[:id].nil? ? current_user : User.find(params[:id])
     @feed = if @user == current_user
               Message.feed(@user, current_user: @user)
             else
