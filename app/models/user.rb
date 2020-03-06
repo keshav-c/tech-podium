@@ -53,6 +53,10 @@ class User < ApplicationRecord
     photo.attached? ? photo : 'default_avatar.png'
   end
 
+  def coverimage_path
+    coverimage.attached? ? coverimage : 'default_cover.jpg'
+  end
+
   def users_to_follow
     following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
     User
