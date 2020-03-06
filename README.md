@@ -17,7 +17,8 @@ implemented are
 
 ## Live Demo
 
-TBA
+Live Version on Heroku: [Here](https://tranquil-oasis-42246.herokuapp.com/)
+Video Presentation: [Here](https://www.youtube.com/watch?v=6QlTJBHYO0o)
 
 
 ## Getting Started
