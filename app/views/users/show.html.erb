@@ -9,7 +9,7 @@
         <%= image_tag(@user.coverimage_path, class: "img-fluid") %>
       </div>
       <% if logged_in? && current_user == @user %>
-        <%= render partial: 'messages/message_form', locals: { message: @message } %>
+        <%= render partial: 'messages/message_form', locals: { user: @user } %>
       <% end %>
       <%= render partial: 'messages/feed', locals: { messages: @feed } %>
     </div>

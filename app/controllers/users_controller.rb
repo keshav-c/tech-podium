@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = !params[:id].nil? ? User.find(params[:id]) : current_user
-    @message = Message.new
     @feed = if @user == current_user
               Message.feed(@user, current_user: @user)
             else
