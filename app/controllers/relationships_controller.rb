@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :authorize
+  before_action :authorize, only: %i[create destroy]
 
   def create
     user = User.find(params[:followed_id])
