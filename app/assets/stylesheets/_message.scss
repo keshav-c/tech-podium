@@ -1,0 +1,41 @@
+#messaging-form {
+  background-color: $white;
+  border-radius: 3px;
+  padding: 5px;
+  #form-submit {
+    float: right;
+  }
+  p {
+    color: $gray-600;
+  }
+}
+
+.message-feed {
+  background-color: $white;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 0;
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    padding-inline-start: 0;
+  }
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+.message-attribution {
+  .message-date {
+    float: right;
+  }
+}
+
+.message-like {
+  align-items: baseline;
+  display: flex;
+  justify-content: flex-end;
+}

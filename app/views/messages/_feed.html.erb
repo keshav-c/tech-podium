@@ -1,5 +1,9 @@
 <div class="message-feed">
-  <ul>
-    <%= render partial: 'messages/message', collection: messages %>
-  </ul>
+  <% if messages.any? %>
+    <ul>
+      <%= render partial: 'messages/message', collection: messages %>
+    </ul>
+  <% else %>
+    <h4 class="text-primary">Nothing in the feed yet.</h4>
+  <% end %>
 </div>
