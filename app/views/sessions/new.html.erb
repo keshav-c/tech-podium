@@ -1,10 +1,12 @@
 <% provide(:title, 'Log in') %>
-<div class="container">
-  <h1>Log in</h1>
-  <div class="col-md-6 col-md-offset-3">
+<div class="row vh-100 align-items-center">
+  <div class="col-md-6 col-md-offset-3 mx-auto bg-light">
+    <h1>Log in</h1>
     <%= form_for :session, url: login_path do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
     <p> New user? <%= link_to "Join", signup_path %></p>

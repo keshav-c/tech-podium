@@ -1,0 +1,22 @@
+#cu-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cu-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-image {
+  max-width: 100%;
+}
+
+#profile-info {
+  h5, p {
+    text-align: center;
+  }
+  h5 {
+    margin-bottom: 3px;
+  }
+}

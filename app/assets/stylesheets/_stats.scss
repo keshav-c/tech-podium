@@ -1,0 +1,14 @@
+.stats {
+  align-items: baseline;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  text-align: center;
+}
