@@ -3,49 +3,60 @@
   <div class="col-3" id="left-tab">
     <%= render partial: 'shared/navigation', locals: { current_user: current_user } %>
   </div>
-  <div class="col-6" id="center-tab">
-    <div class="cover-image">
-      <%= image_tag(@user.coverimage_path, class: "img-fluid") %>
+  <div class="col-9 flex-column">
+    <div class="row">
+      <div class="col-12" id="title-bar">
+        <h3 class="text-light text-uppercase my-3">Tech-Podium</h3>
+      </div>
     </div>
-    <% if logged_in? && current_user == @user %>
-      <%= render partial: 'messages/message_form', locals: { user: @user } %>
-    <% end %>
-    <%= render partial: 'messages/feed', locals: { messages: @feed } %>
-  </div>
-  <div class="col-3" id="right-tab">
-    <div id="profile-info">
-      <% if !@logged_in_user %>
-        <%= image_tag @user.photo_path, size: "80x80", class: "d-block mx-auto" %>
-        <h5><%= @user.fullname %></h5> 
-        <p class="text-muted">@<%= @user.username %></p>
-        <div class="stats">
-          <div class="stat">
-            <% cnt = @user.messages.count %>
-            <div class="stat-num"><%= cnt %></div>
-            <div class="stat-text font-weight-bold"><%= 'Message'.pluralize(cnt) %></div>
-          </div>
-          <%= render partial: 'follow_stats', locals: { user: @user } %>
-        </div>
-        <%= render partial: 'follow_form', locals: { user: @user } %>
-      <% end %>
-    </div>
-    <div class="users-list">
-      <% if @users_list.any? %>
-        <% if @logged_in_user %>
-          <h4>Users to follow:</h4>
+    <div class="row">
+      <div class="col-8" id="center-tab">
+        <div class="title-bar"></div>
+        <% if logged_in? && current_user == @user %>
+          <%= render partial: 'messages/message_form', locals: { user: @user } %>
         <% else %>
-          <h4>Followed by:</h4>
-        <% end %>
-        <ul>
-          <% @users_list.each do |u| %>
-          <div>
-            <%= image_tag(u.photo_path, size: "15x15") %>
-            <%= link_to u.fullname, "/users/#{u.id}" %>
+          <div class="cover-image">
+            <%= image_tag(@user.coverimage_path, class: "img-fluid") %>
           </div>
+        <% end %>
+        <%= render partial: 'messages/feed', locals: { messages: @feed } %>
+      </div>
+      <div class="col-4" id="right-tab">
+        <div class="title-bar"></div>
+        <div id="profile-info">
+          <% if !@logged_in_user %>
+            <%= image_tag @user.photo_path, size: "80x80", class: "d-block mx-auto" %>
+            <h5><%= @user.fullname %></h5> 
+            <p class="text-muted">@<%= @user.username %></p>
+            <div class="stats">
+              <div class="stat">
+                <% cnt = @user.messages.count %>
+                <div class="stat-num"><%= cnt %></div>
+                <div class="stat-text font-weight-bold"><%= 'Message'.pluralize(cnt) %></div>
+              </div>
+              <%= render partial: 'follow_stats', locals: { user: @user } %>
+            </div>
+            <%= render partial: 'follow_form', locals: { user: @user } %>
           <% end %>
-        </ul>
-      <% end %>
+        </div>
+        <div class="users-list">
+          <% if @users_list.any? %>
+            <% if @logged_in_user %>
+              <h4>Users to follow:</h4>
+            <% else %>
+              <h4>Followed by:</h4>
+            <% end %>
+            <ul>
+              <% @users_list.each do |u| %>
+              <div>
+                <%= image_tag(u.photo_path, size: "15x15") %>
+                <%= link_to u.fullname, "/users/#{u.id}" %>
+              </div>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
     </div>
-    
   </div>
 </div>
