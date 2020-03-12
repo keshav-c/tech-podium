@@ -1,5 +1,10 @@
 .users-list {
   margin-top: 15px;
+
+  h4 {
+    color: $gray-400;
+    text-transform: uppercase;
+  }
   ul {
     padding-inline-start: 0;
   }
