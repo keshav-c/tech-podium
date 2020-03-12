@@ -1,7 +1,7 @@
 .stats {
   align-items: baseline;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .stat {
@@ -10,5 +10,10 @@
 }
 
 .stat-num {
+  color: $gray-200;
   text-align: center;
+}
+
+.stat-text {
+  color: $gray-500;
 }
