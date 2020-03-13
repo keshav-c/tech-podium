@@ -9,8 +9,17 @@
   flex-direction: column;
 }
 
-.stat-num {
+.stat-num-self {
   color: $gray-200;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.stat-num-other {
+  color: $gray-600;
+  font-size: larger;
+  font-weight: bolder;
   text-align: center;
 }
 

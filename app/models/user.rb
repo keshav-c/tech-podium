@@ -62,7 +62,6 @@ class User < ApplicationRecord
     User
       .with_attached_photo
       .where("id NOT IN (#{following_ids}) AND id != :user_id", user_id: id)
-      .select('fullname, id')
       .order(created_at: :desc)
       .limit(10)
   end
