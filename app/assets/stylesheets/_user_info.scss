@@ -1,11 +1,28 @@
-#cu-info {
+#photo-box {
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  margin-bottom: 25px;
+  padding: 0 5%;
+  h4 {
+    color: $gray-500;
+  }
+  img {
+    border-radius: 4px;
+  }
 }
 
 #cu-links {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
+  .btn {
+    border: 0;
+    border-radius: 0;
+    &:hover {
+      background-color: #00acee;
+      color: $gray-300;
+    }
+  }
 }
 
 .cover-image {

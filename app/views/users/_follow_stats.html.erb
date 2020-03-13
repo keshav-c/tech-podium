@@ -2,7 +2,7 @@
   <%= link_to(following_user_path(user),
               id: "following-#{user.id}",
               class: "btn btn-light bg-transparent border-0") do %>
-    <div class="stat-num"><%= user.following.count %></div>
+    <div class="<%= stats_color(user) %>"><%= user.following.count %></div>
     <div class="stat-text font-weight-bold">Following</div>
   <% end %>
 </div>
@@ -11,7 +11,7 @@
               id: "followers-#{user.id}",
               class: "btn btn-light bg-transparent border-0") do %>
     <% cnt = user.followers.count %>
-    <div class="stat-num"><%= cnt %></div>
+    <div class="<%= stats_color(user) %>"><%= cnt %></div>
     <div class="stat-text font-weight-bold"><%= "Follower".pluralize(cnt) %></div>
   <% end %>
 </div>

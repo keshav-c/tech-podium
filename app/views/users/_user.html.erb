@@ -1,7 +1,16 @@
 <li>
-  <div id="user-<%= user.id %>">
-    <strong>
-      <%= link_to "#{user.fullname} @#{user.username}", user_path(user) %>
-    </strong>
+  <div id="user-<%= user.id %>" class="row ml-2 position-relative">
+    <div class="user-photo">
+      <%= image_tag(user.photo_path, size: "50x50", class: "rounded-circle") %>
+    </div>
+    <div class="ml-2 position-static">
+      <div class="user-fullname">
+        <strong><%= user.fullname %></strong>
+      </div>
+      <div class="user-username">
+        <p>@<%= user.username %></p>
+        <%= link_to "", user_path(user), class: "stretched-link" %>
+      </div>
+    </div>
   </div>
 </li>

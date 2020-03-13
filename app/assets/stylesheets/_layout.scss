@@ -1,6 +1,9 @@
 #left-tab {
-  padding-top: 20px;
-  background-color: #00acee;
+  align-items: center;
+  background-color: #213346;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 0 0;
 }
 
 #center-tab {
@@ -10,4 +13,8 @@
 #right-tab {
   padding-left: 30px;
   padding-top: 20px;
+}
+
+#title-bar {
+  background-color: #00acee;
 }
