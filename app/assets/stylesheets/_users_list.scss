@@ -1,0 +1,25 @@
+.users-list {
+  margin-top: 15px;
+
+  h4 {
+    color: $gray-400;
+    text-transform: uppercase;
+  }
+  ul {
+    padding-inline-start: 0;
+  }
+  li {
+    list-style-type: none;
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+}
+
+.user-fullname {
+  color: $gray-600;
+}
+
+.user-username {
+  color: $gray-500;
+}

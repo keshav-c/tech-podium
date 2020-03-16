@@ -1,15 +1,27 @@
 <% provide(:title, 'Sign up') %>
-<div class="container">
-  <h1>Sign up</h1>
-  <div class="col-md-6 col-md-offset-3">
+<div class="row vh-100 align-items-center">
+  <div class="col-md-6 col-md-offset-3 mx-auto bg-light">
+    <h1 class="text-center">Sign up</h1>
     <%= form_for @user do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
-      <%= f.label :fullname %>
-      <%= f.text_field :fullname, class: 'form-control' %>
-      <%= f.submit "Sign up", class: "btn btn-primary" %>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :fullname %>
+        <%= f.text_field :fullname, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :photo, "Profile photo:" %>
+        <%= f.file_field :photo %>
+      </div>
+      <div class="form-group">
+        <%= f.label :coverimage, "Profile cover:" %>
+        <%= f.file_field :coverimage %>
+      </div>
+      <%= f.submit "Sign up", class: "btn btn-primary w-100" %>
     <% end %>
-    <p> New user? <%= link_to "Join", signup_path %></p>
+    <p> Already registered? <%= link_to "Log in", login_path %></p>
   </div>
 </div>

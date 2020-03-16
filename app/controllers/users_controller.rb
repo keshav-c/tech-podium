@@ -2,14 +2,18 @@ class UsersController < ApplicationController
   before_action :authorize, only: %i[show following followers]
 
   def show
-    @user = !params[:id].nil? ? User.find(params[:id]) : current_user
-    @message = Message.new
+    @user = params[:id].nil? ? current_user : User.find(params[:id])
     @feed = if @user == current_user
               Message.feed(@user, current_user: @user)
             else
               Message.feed(@user, current_user: current_user)
             end
     @logged_in_user = @user == current_user
+    @users_list = if @logged_in_user
+                    @user.users_to_follow
+                  else
+                    @user.followers
+                  end
   end
 
   def new
@@ -27,15 +31,15 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "#{current_user.fullname} is following"
     @user = User.find(params[:id])
+    @title = "#{@user.fullname} is following"
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
-    @title = "#{current_user.fullname}'s followers"
     @user = User.find(params[:id])
+    @title = "#{@user.fullname}'s followers"
     @users = @user.followers
     render 'show_follow'
   end
@@ -43,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :fullname)
+    params.require(:user).permit(:username, :fullname, :photo, :coverimage)
   end
 end

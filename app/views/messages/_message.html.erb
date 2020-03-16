@@ -1,14 +1,23 @@
 <li>
-  <div id="message-<%= message.id %>">
-    <div class='message-attribution' >
-      <%= link_to message.user.fullname, user_path(message.user), class: 'message-author' %>
-      <span class='message-date'> <%= time_ago_in_words(message.created_at) %></span>
-    </div>
-    <p class="message-text">
-      <%= message.text %>
-    </p>
-    <div class='message-liking'>
-      <%= render partial: 'likes/like_form', locals: { message: message }%>
+  <div id="message-<%= message.id %>" class="card border-0">
+    <div class="row no-gutters">
+      <div class="col-3">
+        <%= image_tag message.user.photo_path, class: "card-img" %>
+      </div>
+      <div class="col-9">
+        <div class="card-body">
+          <div class='message-attribution' >
+            <%= link_to message.user.fullname, user_path(message.user), class: 'message-author' %>
+            <small class='message-date text-muted'> <%= time_ago_in_words(message.created_at) %></small>
+          </div>
+          <p class="message-text">
+            <%= message.text %>
+          </p>
+          <div class='message-liking'>
+            <%= render partial: 'likes/like_form', locals: { message: message }%>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </li>

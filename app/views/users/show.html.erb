@@ -1,18 +1,57 @@
 <% provide(:title, 'Home') %>
-<div class="col-6">
-  <b><%= @user.fullname %></b> @<%= @user.username %>
-  <%= render partial: 'follow_stats', locals: { user: @user } %>
-  <%= render partial: 'follow_form', locals: { user: @user } %>
-  <% if logged_in? && current_user == @user %>
-    <br>
-    <%= render partial: 'messages/message_form', locals: { message: @message } %>
-  <% end %>
-  <%= render partial: 'messages/feed', locals: { messages: @feed } %>
-</div>
-<div class="col-3">
-  <% if @logged_in_user %>
-    logged in user specific info
-  <% else %>
-    user specific info
-  <% end %>
+<div class="row">
+  <div class="col-3" id="left-tab">
+    <%= render partial: 'shared/navigation', locals: { current_user: current_user } %>
+  </div>
+  <div class="col-9 flex-column">
+    <div class="row">
+      <div class="col-12" id="title-bar">
+        <h3 class="text-light text-uppercase my-3">Tech-Podium</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 px-0" id="center-tab">
+        <div class="title-bar"></div>
+        <% if logged_in? && current_user == @user %>
+          <%= render partial: 'messages/message_form', locals: { user: @user } %>
+        <% else %>
+          <div class="cover-image">
+            <%= image_tag(@user.coverimage_path, class: "img-fluid") %>
+          </div>
+        <% end %>
+        <%= render partial: 'messages/feed', locals: { messages: @feed } %>
+      </div>
+      <div class="col-4" id="right-tab">
+        <div class="title-bar"></div>
+        <div id="profile-info">
+          <% if !@logged_in_user %>
+            <%= image_tag @user.photo_path,
+                          size: "80x80",
+                          class: "d-block mx-auto rounded-circle" %>
+            <h5><%= @user.fullname %></h5> 
+            <p class="text-muted">@<%= @user.username %></p>
+            <div class="stats">
+              <div class="stat">
+                <% cnt = @user.messages.count %>
+                <div class="stat-num-other"><%= cnt %></div>
+                <div class="stat-text font-weight-bold"><%= 'Message'.pluralize(cnt) %></div>
+              </div>
+              <%= render partial: 'follow_stats', locals: { user: @user } %>
+            </div>
+            <%= render partial: 'follow_form', locals: { user: @user } %>
+          <% end %>
+        </div>
+        <div class="users-list">
+          <% if @users_list.any? %>
+            <% if @logged_in_user %>
+              <h4>Users to follow:</h4>
+            <% else %>
+              <h4>Followed by:</h4>
+            <% end %>
+            <%= render partial: "user", collection: @users_list, as: :user %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,28 @@
+.stats {
+  align-items: baseline;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num-self {
+  color: $gray-200;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.stat-num-other {
+  color: $gray-600;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.stat-text {
+  color: $gray-500;
+}

@@ -13,7 +13,7 @@ RSpec.feature 'ViewRelationshipsAuthorized', type: :feature do
   end
 
   scenario 'authorized user can view their followers' do
-    expect(page).to have_content('1 follower')
+    expect(page).to have_content(/1\sfollower/i)
     click_link id: "followers-#{@u1.id}"
     expect(page).to have_content("#{@u1.fullname}'s followers")
     expect(page).to have_css("#user-#{@u3.id}")
@@ -21,7 +21,7 @@ RSpec.feature 'ViewRelationshipsAuthorized', type: :feature do
   end
 
   scenario 'authorized user can view who they\'re following' do
-    expect(page).to have_content('following 1')
+    expect(page).to have_content(/1\sfollowing/i)
     click_link id: "following-#{@u1.id}"
     expect(page).to have_content("#{@u1.fullname} is following")
     expect(page).to have_css("#user-#{@u2.id}")

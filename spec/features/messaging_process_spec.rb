@@ -10,10 +10,10 @@ RSpec.feature 'MessagingProcesses', type: :feature do
     end
 
     scenario 'user can create a message from their home page' do
-      within('.messaging-form') do
+      within('#messaging-form') do
         fill_in name: 'message[text]', with: 'This is a new post'
       end
-      click_button 'Post'
+      click_button 'Message'
       expect(page).to have_content('This is a new post')
     end
   end

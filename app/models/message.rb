@@ -23,11 +23,11 @@ class Message < ApplicationRecord
       Message
         .where("user_id IN (#{following_ids}) OR user_id = :user_id",
                user_id: user.id)
-        .includes(:user)
+        .includes(user: :photo_attachment)
         .select("messages.*, #{current_user_liked}, #{like_id}, #{num_likes}")
     else
       user.messages
-        .includes(:user)
+        .includes(user: :photo_attachment)
         .select("messages.*, #{current_user_liked}, #{like_id}, #{num_likes}")
     end
   end
